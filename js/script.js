@@ -87,7 +87,7 @@ function showToast(message, type = 'success') {
     window.setTimeout(() => {
         toast.classList.remove('show');
         window.setTimeout(() => toast.remove(), 250);
-    }, 3800);
+    }, 4500);
 }
 
 // --------------------------------------------------
@@ -248,49 +248,81 @@ if (motivationInput && charCount) {
 }
 
 // --------------------------------------------------
-// Formulário: sucesso e erro com feedback visual
+// Formulário: validação controlada pelo projeto
 // --------------------------------------------------
 const volunteerForm = document.querySelector('#volunteer-form');
 const formMessage = document.querySelector('#form-message');
-let invalidToastLocked = false;
+let formAlert = null;
 
 if (volunteerForm) {
-    volunteerForm.addEventListener('invalid', () => {
-        if (!invalidToastLocked) {
-            showToast('Há campos obrigatórios ou inválidos. Revise o campo destacado.', 'info');
-            invalidToastLocked = true;
-            window.setTimeout(() => {
-                invalidToastLocked = false;
-            }, 1200);
-        }
-    }, true);
+    // Evita que o Chrome bloqueie o submit antes do feedback personalizado.
+    // Os atributos required, type, pattern e minlength continuam sendo verificados via checkValidity().
+    volunteerForm.noValidate = true;
+
+    formAlert = document.createElement('p');
+    formAlert.className = 'form-message';
+    formAlert.id = 'form-alert';
+    formAlert.setAttribute('role', 'alert');
+    formAlert.setAttribute('aria-live', 'assertive');
+    volunteerForm.prepend(formAlert);
+}
+
+function showFormError(message, field) {
+    if (formAlert) {
+        formAlert.textContent = message;
+        formAlert.className = 'form-message is-error';
+    }
+
+    if (formMessage) {
+        formMessage.textContent = message;
+        formMessage.className = 'form-message is-error';
+    }
+
+    showToast(message, 'info');
+
+    if (field) {
+        field.focus({ preventScroll: true });
+        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 }
 
 if (volunteerForm && formMessage) {
     volunteerForm.addEventListener('submit', (event) => {
         event.preventDefault();
+
         formMessage.className = 'form-message';
+        formMessage.textContent = '';
+        if (formAlert) {
+            formAlert.className = 'form-message';
+            formAlert.textContent = '';
+        }
+
+        const firstInvalidField = volunteerForm.querySelector('input:invalid, select:invalid, textarea:invalid');
+
+        if (firstInvalidField) {
+            showFormError('Existem campos obrigatórios ou inválidos. Corrija o campo destacado para continuar.', firstInvalidField);
+            return;
+        }
 
         const selectedInterests = volunteerForm.querySelectorAll('input[name="interesse"]:checked');
 
         if (selectedInterests.length === 0) {
-            formMessage.textContent = 'Selecione pelo menos uma área de interesse.';
-            formMessage.classList.add('is-error');
-            showToast('Revise os campos obrigatórios do formulário.', 'info');
-            volunteerForm.querySelector('input[name="interesse"]')?.focus();
+            showFormError(
+                'Selecione pelo menos uma área de interesse para continuar.',
+                volunteerForm.querySelector('input[name="interesse"]')
+            );
             return;
         }
 
-        if (!volunteerForm.checkValidity()) {
-            formMessage.textContent = 'Existem campos obrigatórios que precisam ser corrigidos.';
-            formMessage.classList.add('is-error');
-            showToast('Existem campos obrigatórios que precisam ser corrigidos.', 'info');
-            volunteerForm.reportValidity();
-            return;
-        }
-
-        formMessage.textContent = 'Cadastro demonstrativo concluído com sucesso! Os dados não são enviados para um servidor.';
+        const successMessage = 'Cadastro demonstrativo concluído com sucesso! Os dados não são enviados para um servidor.';
+        formMessage.textContent = successMessage;
         formMessage.classList.add('is-success');
+
+        if (formAlert) {
+            formAlert.textContent = successMessage;
+            formAlert.className = 'form-message is-success';
+        }
+
         showToast('Inscrição realizada com sucesso!');
         volunteerForm.reset();
         if (charCount) charCount.textContent = '0';

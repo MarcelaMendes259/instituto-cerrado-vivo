@@ -252,6 +252,19 @@ if (motivationInput && charCount) {
 // --------------------------------------------------
 const volunteerForm = document.querySelector('#volunteer-form');
 const formMessage = document.querySelector('#form-message');
+let invalidToastLocked = false;
+
+if (volunteerForm) {
+    volunteerForm.addEventListener('invalid', () => {
+        if (!invalidToastLocked) {
+            showToast('Há campos obrigatórios ou inválidos. Revise o campo destacado.', 'info');
+            invalidToastLocked = true;
+            window.setTimeout(() => {
+                invalidToastLocked = false;
+            }, 1200);
+        }
+    }, true);
+}
 
 if (volunteerForm && formMessage) {
     volunteerForm.addEventListener('submit', (event) => {
@@ -271,6 +284,7 @@ if (volunteerForm && formMessage) {
         if (!volunteerForm.checkValidity()) {
             formMessage.textContent = 'Existem campos obrigatórios que precisam ser corrigidos.';
             formMessage.classList.add('is-error');
+            showToast('Existem campos obrigatórios que precisam ser corrigidos.', 'info');
             volunteerForm.reportValidity();
             return;
         }

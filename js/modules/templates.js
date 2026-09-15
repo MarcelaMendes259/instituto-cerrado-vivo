@@ -89,7 +89,7 @@ function gerarProjetos() {
                 <span class="badge ${projeto.badgeClasse}">${projeto.badge}</span>
                 <h2>${projeto.titulo}</h2>
                 <p>${projeto.texto}</p>
-                <button class="button button-secondary" type="button" data-project-modal="${projeto.titulo}">Saiba mais</button>
+                <button class="button button-secondary" type="button" data-project-modal="${projeto.titulo}" aria-pressed="false">Saiba mais</button>
             </div>
         </article>
     `).join('');

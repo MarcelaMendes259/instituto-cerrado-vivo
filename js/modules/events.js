@@ -52,7 +52,10 @@ function tratarClique(event) {
         const titulo = botaoProjeto.dataset.projectModal;
         const card = botaoProjeto.closest('.project-card');
         card?.classList.toggle('active');
-        botaoProjeto.textContent = card?.classList.contains('active')
+        const selecionado = Boolean(card?.classList.contains('active'));
+
+        botaoProjeto.setAttribute('aria-pressed', String(selecionado));
+        botaoProjeto.textContent = selecionado
             ? `${titulo} selecionado`
             : 'Saiba mais';
     }

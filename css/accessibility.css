@@ -1,0 +1,111 @@
+/* Recursos adicionais de acessibilidade */
+
+.contrast-toggle {
+    padding: 9px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--purple-900);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.contrast-toggle:hover,
+.contrast-toggle:focus-visible {
+    background: var(--purple-100);
+}
+
+.contrast-toggle:focus-visible,
+.high-contrast :focus-visible {
+    outline: 3px solid #00ffff;
+    outline-offset: 3px;
+}
+
+.high-contrast {
+    --cor-primaria-escura: #000000;
+    --cor-primaria: #000000;
+    --cor-secundaria: #ffffff;
+    --cor-destaque: #ffeb3b;
+    --cor-branca: #000000;
+    --cor-fundo: #000000;
+    --cor-borda: #ffffff;
+    --cor-texto: #ffffff;
+    --cor-texto-secundario: #ffffff;
+    --cor-sucesso: #ffffff;
+    --cor-erro: #ff6b6b;
+    --cor-info: #ffffff;
+    --purple-900: #ffffff;
+    --purple-800: #ffeb3b;
+    --purple-700: #ffeb3b;
+    --purple-600: #ffffff;
+    --purple-200: #ffffff;
+    --purple-100: #000000;
+    --black: #ffffff;
+    --gray-700: #ffffff;
+    --gray-500: #ffffff;
+    --gray-300: #ffffff;
+    --gray-100: #000000;
+    --white: #000000;
+    color: #ffffff;
+    background: #000000;
+}
+
+.high-contrast .site-header,
+.high-contrast .site-footer,
+.high-contrast .hero,
+.high-contrast .page-hero,
+.high-contrast .section,
+.high-contrast .section-soft,
+.high-contrast .info-card,
+.high-contrast .project-card,
+.high-contrast .form-aside,
+.high-contrast fieldset,
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea,
+.high-contrast .button-secondary,
+.high-contrast .contrast-toggle,
+.high-contrast .menu-button {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.high-contrast a:not(.button),
+.high-contrast .eyebrow,
+.high-contrast .project-tag {
+    color: #ffeb3b !important;
+}
+
+.high-contrast .button-primary,
+.high-contrast .badge,
+.high-contrast .card-number {
+    background: #ffeb3b !important;
+    color: #000000 !important;
+    border-color: #ffeb3b !important;
+}
+
+.high-contrast .main-nav a:hover,
+.high-contrast .main-nav a:focus-visible,
+.high-contrast .main-nav a.active,
+.high-contrast .contrast-toggle:hover,
+.high-contrast .contrast-toggle:focus-visible {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+.high-contrast img {
+    outline: 2px solid #ffffff;
+}
+
+@media (prefers-contrast: more) {
+    :root:not(.contrast-user-choice) .button:focus-visible,
+    :root:not(.contrast-user-choice) a:focus-visible,
+    :root:not(.contrast-user-choice) button:focus-visible,
+    :root:not(.contrast-user-choice) input:focus-visible {
+        outline: 3px solid #00ffff;
+        outline-offset: 3px;
+    }
+}

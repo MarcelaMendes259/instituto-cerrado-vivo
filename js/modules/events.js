@@ -1,3 +1,10 @@
+import {
+    obterDadosFormulario,
+    validarCampo,
+    validarFormulario,
+    validarGrupoAlterado
+} from './validation.js';
+
 function formatarTelefone(valor) {
     const numeros = valor.replace(/\D/g, '').slice(0, 11);
 
@@ -58,8 +65,16 @@ function tratarInput(event) {
         campo.value = formatarTelefone(campo.value);
     }
 
-    if (campo.matches('input, textarea, select')) {
-        campo.setAttribute('aria-invalid', String(!campo.checkValidity()));
+    if (campo.matches('#nome, #email, #telefone')) {
+        validarCampo(campo);
+    }
+}
+
+function tratarChange(event) {
+    const campo = event.target;
+
+    if (campo.matches('input[name="interesse"], #consentimento')) {
+        validarGrupoAlterado(campo);
     }
 }
 
@@ -70,14 +85,32 @@ function tratarSubmit(event) {
 
     event.preventDefault();
 
-    const dados = Object.fromEntries(new FormData(formulario).entries());
+    const alerta = formulario.querySelector('#form-alert');
     const mensagem = formulario.querySelector('#form-message');
 
-    if (mensagem) {
-        mensagem.textContent = 'Dados recebidos pela aplicação. A validação será realizada antes do armazenamento.';
+    alerta?.classList.remove('is-error');
+    mensagem?.classList.remove('is-success');
+
+    if (!validarFormulario(formulario)) {
+        if (alerta) {
+            alerta.textContent = 'Revise os campos destacados antes de enviar.';
+            alerta.classList.add('is-error');
+        }
+
+        if (mensagem) mensagem.textContent = '';
+        return;
     }
 
-    document.dispatchEvent(new CustomEvent('voluntario:enviado', {
+    const dados = obterDadosFormulario(formulario);
+
+    if (alerta) alerta.textContent = '';
+
+    if (mensagem) {
+        mensagem.textContent = 'Dados validados com sucesso.';
+        mensagem.classList.add('is-success');
+    }
+
+    document.dispatchEvent(new CustomEvent('voluntario:validado', {
         detail: { dados }
     }));
 }
@@ -85,5 +118,6 @@ function tratarSubmit(event) {
 export function iniciarEventosGlobais() {
     document.addEventListener('click', tratarClique);
     document.addEventListener('input', tratarInput);
+    document.addEventListener('change', tratarChange);
     document.addEventListener('submit', tratarSubmit);
 }

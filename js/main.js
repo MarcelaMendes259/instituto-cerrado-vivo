@@ -1,5 +1,6 @@
 import { iniciarRoteador } from './modules/router.js';
 import { iniciarEventosGlobais } from './modules/events.js';
+import { iniciarArmazenamento } from './modules/storage.js';
 
 const yearElement = document.querySelector('#current-year');
 if (yearElement) {
@@ -30,4 +31,5 @@ document.addEventListener('spa:renderizada', ({ detail }) => {
 });
 
 iniciarEventosGlobais();
+iniciarArmazenamento();
 iniciarRoteador();

@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Instituto DF Cerrado: ciência, educação ambiental e conservação do Cerrado no Distrito Federal.">
-    <title>Instituto DF Cerrado | Início</title>
+    <meta name="description" content="Instituto DF Cerrado: aplicação acadêmica SPA voltada à conservação, pesquisa e educação ambiental.">
+    <title>Instituto DF Cerrado | SPA</title>
     <link rel="icon" href="imagens/logo.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <a class="skip-link" href="#app">Pular para o conteúdo</a>
 
     <header class="site-header">
         <div class="container header-content">
-            <a class="brand" href="index.html" aria-label="Instituto DF Cerrado - página inicial">
+            <a class="brand" href="#inicio" data-route="inicio" aria-label="Instituto DF Cerrado - página inicial">
                 <img src="imagens/logo.png" alt="" width="52" height="52">
                 <span>
                     <strong>Instituto DF Cerrado</strong>
@@ -22,220 +22,34 @@
             </a>
 
             <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-menu">
-                Menu
+                <span aria-hidden="true">☰</span> Menu
             </button>
 
             <nav class="main-nav" id="main-menu" aria-label="Navegação principal">
-                <a class="active" href="index.html">Início</a>
-                <a href="projetos.html">Projetos</a>
-                <a href="cadastro.html">Seja voluntário</a>
-                <a href="#contato">Contato</a>
+                <a href="#inicio" data-route="inicio">Início</a>
+                <a href="#projetos" data-route="projetos">Projetos</a>
+                <a href="#voluntariado" data-route="voluntariado">Seja voluntário</a>
+                <a href="#contato" data-route="contato">Contato</a>
             </nav>
         </div>
     </header>
 
-    <main id="conteudo">
-        <section class="hero">
-            <div class="container hero-grid">
-                <div class="hero-copy">
-                    <p class="eyebrow">Conservação do Cerrado • Brasília, DF</p>
-                    <h1>Ciência e conservação para proteger a biodiversidade do Cerrado.</h1>
-                    <p class="hero-text">
-                        O Instituto DF Cerrado é uma organização fictícia dedicada ao apoio a unidades de conservação,
-                        pesquisa, educação ambiental e participação social no Distrito Federal.
-                    </p>
-                    <div class="hero-actions">
-                        <a class="button button-primary" href="projetos.html">Conheça nossos projetos</a>
-                        <a class="button button-secondary" href="cadastro.html">Quero ser voluntário</a>
-                    </div>
-                </div>
+    <main id="app" tabindex="-1" aria-live="polite"></main>
 
-                <figure class="hero-image">
-                    <img src="imagens/cerrado-hero.jpg" alt="Ilustração minimalista de paisagem do Cerrado com vegetação, céu e silhueta de lobo-guará.">
-                </figure>
-            </div>
-        </section>
-
-        <section class="section" aria-labelledby="quem-somos">
-            <div class="container split-section">
-                <div>
-                    <p class="eyebrow">Quem somos</p>
-                    <h2 id="quem-somos">Conhecimento científico a serviço da conservação</h2>
-                </div>
-                <div>
-                    <p>
-                        Atuamos para aproximar ciência, natureza e sociedade. Nossas ações valorizam o conhecimento
-                        científico, o uso responsável das áreas protegidas e a formação de pessoas capazes de participar
-                        ativamente da conservação ambiental.
-                    </p>
-                    <p>
-                        O projeto tem atuação fictícia em Brasília e entorno, com foco em parques ecológicos, reservas e
-                        outras áreas relevantes para a proteção da biodiversidade do Cerrado.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-soft" aria-labelledby="atuacao">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Nossa missão</p>
-                    <h2 id="atuacao">Quatro frentes de atuação</h2>
-                    <p>Conservação aplicada, pesquisa e educação para fortalecer a relação entre pessoas e áreas naturais.</p>
-                </div>
-
-                <div class="card-grid four-columns">
-                    <article class="info-card">
-                        <span class="card-number">01</span>
-                        <h3>Unidades de conservação</h3>
-                        <p>Apoio a ações de conservação, visitação responsável e valorização de parques e reservas.</p>
-                    </article>
-                    <article class="info-card">
-                        <span class="card-number">02</span>
-                        <h3>Pesquisa</h3>
-                        <p>Monitoramento de fauna e flora, produção de dados e incentivo à ciência cidadã.</p>
-                    </article>
-                    <article class="info-card">
-                        <span class="card-number">03</span>
-                        <h3>Educação ambiental</h3>
-                        <p>Atividades educativas, trilhas interpretativas e ações com estudantes e visitantes.</p>
-                    </article>
-                    <article class="info-card">
-                        <span class="card-number">04</span>
-                        <h3>Recuperação ambiental</h3>
-                        <p>Mobilização para recuperação de áreas degradadas e proteção da vegetação nativa.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" aria-labelledby="especies">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Biodiversidade</p>
-                    <h2 id="especies">Espécies em destaque no Distrito Federal</h2>
-                    <p>Algumas espécies que representam a diversidade e a importância ecológica do Cerrado.</p>
-                </div>
-
-                <div class="species-grid">
-                    <article class="species-card">
-                        <img src="imagens/lobo.png" alt="Ilustração estilizada de lobo-guará.">
-                        <div>
-                            <h3>Lobo-guará</h3>
-                            <p class="scientific-name"><em>Chrysocyon brachyurus</em></p>
-                            <p>Mamífero emblemático do Cerrado e importante dispersor de sementes.</p>
-                        </div>
-                    </article>
-
-                    <article class="species-card">
-                        <img src="imagens/tamandua.jpg" alt="Ilustração estilizada de tamanduá-bandeira.">
-                        <div>
-                            <h3>Tamanduá-bandeira</h3>
-                            <p class="scientific-name"><em>Myrmecophaga tridactyla</em></p>
-                            <p>Espécie de grande porte associada a áreas abertas e ambientes preservados.</p>
-                        </div>
-                    </article>
-
-                    <article class="species-card">
-                        <img src="imagens/tatu.png" alt="Ilustração estilizada de tatu-canastra.">
-                        <div>
-                            <h3>Tatu-canastra</h3>
-                            <p class="scientific-name"><em>Priodontes maximus</em></p>
-                            <p>Maior tatu do mundo, dependente de extensas áreas naturais para sobreviver.</p>
-                        </div>
-                    </article>
-
-                    <article class="species-card">
-                        <img src="imagens/galito.jpg" alt="Ilustração estilizada da ave galito.">
-                        <div>
-                            <h3>Galito</h3>
-                            <p class="scientific-name"><em>Alectrurus tricolor</em></p>
-                            <p>Pequena ave campestre ligada a ambientes naturais abertos do Cerrado.</p>
-                        </div>
-                    </article>
-
-                    <article class="species-card">
-                        <img src="imagens/lobelia.png" alt="Ilustração estilizada de flor de lobélia.">
-                        <div>
-                            <h3>Lobélia</h3>
-                            <p class="scientific-name"><em>Lobelia brasiliensis</em></p>
-                            <p>Planta nativa que representa a riqueza botânica e os ambientes úmidos do Cerrado.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section stats-section" aria-labelledby="impacto">
-            <div class="container">
-                <div class="section-heading light">
-                    <p class="eyebrow">Impacto demonstrativo</p>
-                    <h2 id="impacto">Conservação feita em rede</h2>
-                    <p>Indicadores fictícios usados apenas para compor este projeto acadêmico.</p>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat"><strong>8</strong><span>áreas naturais apoiadas</span></div>
-                    <div class="stat"><strong>420+</strong><span>participantes em ações educativas</span></div>
-                    <div class="stat"><strong>65</strong><span>voluntários cadastrados</span></div>
-                    <div class="stat"><strong>12</strong><span>ações de campo realizadas</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" aria-labelledby="participar">
-            <div class="container participation-grid">
-                <div>
-                    <p class="eyebrow">Participe</p>
-                    <h2 id="participar">A conservação também depende de pessoas</h2>
-                    <p>
-                        Estudantes, pesquisadores, turistas e pessoas da comunidade podem contribuir por meio de ações
-                        voluntárias, educação ambiental e apoio às atividades do instituto.
-                    </p>
-                </div>
-                <div class="participation-actions">
-                    <a class="button button-primary" href="cadastro.html">Seja voluntário</a>
-                    <button class="button button-secondary" type="button" data-demo-donation>Contribuir com o projeto</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-soft" aria-labelledby="rede">
-            <div class="container split-section">
-                <div>
-                    <p class="eyebrow">Atuação em rede</p>
-                    <h2 id="rede">Cooperação para fortalecer áreas protegidas</h2>
-                </div>
-                <div>
-                    <p>
-                        O Instituto DF Cerrado busca desenvolver ações de cooperação com instituições públicas ambientais,
-                        universidades, centros de pesquisa e comunidades locais, contribuindo para conservação, pesquisa e
-                        uso público responsável em unidades de conservação.
-                    </p>
-                    <p class="note">
-                        <strong>Observação:</strong> o Instituto DF Cerrado é fictício e foi criado para fins acadêmicos.
-                        As menções a cooperação institucional representam apenas uma proposta de atuação.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer" id="contato">
+    <footer class="site-footer">
         <div class="container footer-grid">
             <div>
-                <a class="brand footer-brand" href="index.html">
+                <a class="brand footer-brand" href="#inicio" data-route="inicio">
                     <img src="imagens/logo.png" alt="" width="44" height="44">
                     <span><strong>Instituto DF Cerrado</strong><small>Projeto acadêmico fictício</small></span>
                 </a>
                 <p>Brasília, Distrito Federal</p>
             </div>
-
             <div>
                 <h2>Contato</h2>
                 <p><a href="mailto:contato@institutodfcerrado.example">contato@institutodfcerrado.example</a></p>
                 <p><a href="tel:+556100000000">(61) 0000-0000</a></p>
             </div>
-
             <div>
                 <h2>Redes</h2>
                 <div class="social-links" aria-label="Redes sociais fictícias">
@@ -250,6 +64,6 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+const imagensBase = new URL('../../imagens/', import.meta.url).href;
+
 const frentesAtuacao = [
     {
         numero: '01',
@@ -34,7 +36,7 @@ const projetos = [
         titulo: 'Guardiões do Cerrado',
         categoria: 'Fauna • Monitoramento',
         texto: 'Projeto de monitoramento de mamíferos de médio e grande porte em áreas protegidas.',
-        imagem: '../imagens/lobo.png',
+        imagem: `${imagensBase}lobo.png`,
         alt: 'Ilustração de lobo-guará.',
         visualClasse: 'purple-gradient',
         badge: 'Em andamento',
@@ -45,7 +47,7 @@ const projetos = [
         titulo: 'Campos Vivos',
         categoria: 'Campos naturais • Aves',
         texto: 'Iniciativa voltada ao reconhecimento e valorização dos ambientes campestres do Cerrado.',
-        imagem: '../imagens/galito.jpg',
+        imagem: `${imagensBase}galito.jpg`,
         alt: 'Ilustração da ave galito.',
         visualClasse: 'dark-gradient',
         badge: 'Novas ações',
@@ -56,7 +58,7 @@ const projetos = [
         titulo: 'Flora do Cerrado',
         categoria: 'Flora • Pesquisa',
         texto: 'Levantamento educativo de espécies vegetais nativas e de ambientes sensíveis.',
-        imagem: '../imagens/lobelia.png',
+        imagem: `${imagensBase}lobelia.png`,
         alt: 'Ilustração de lobélia.',
         visualClasse: 'light-gradient',
         badge: 'Pesquisa ativa',
@@ -107,7 +109,7 @@ export const templates = {
                     </div>
                 </div>
                 <figure class="hero-image">
-                    <img src="../imagens/cerrado-hero.jpg" alt="Ilustração minimalista de paisagem do Cerrado com vegetação, céu e silhueta de lobo-guará.">
+                    <img src="${imagensBase}cerrado-hero.jpg" alt="Ilustração minimalista de paisagem do Cerrado com vegetação, céu e silhueta de lobo-guará.">
                 </figure>
             </div>
         </section>

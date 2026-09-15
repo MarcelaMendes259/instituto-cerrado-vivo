@@ -1,0 +1,32 @@
+name: Build de producao
+
+on:
+  push:
+    branches:
+      - feature/otimizacao
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Gerar build de producao
+        run: npm run build
+
+      - name: Publicar artefato da build
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist

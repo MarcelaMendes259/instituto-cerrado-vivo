@@ -16,7 +16,9 @@ export function obterRotaAtual() {
 }
 
 export function carregarRotaAtual() {
-    const rota = obterRotaAtual();
+    const rotaSolicitada = obterRotaAtual();
+    const rota = templates[rotaSolicitada] ? rotaSolicitada : 'inicio';
+
     renderizarPagina(rota);
     document.dispatchEvent(new CustomEvent('spa:renderizada', { detail: { rota } }));
 }

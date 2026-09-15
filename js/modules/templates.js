@@ -1,3 +1,98 @@
+const frentesAtuacao = [
+    {
+        numero: '01',
+        titulo: 'Unidades de conservação',
+        texto: 'Apoio a ações de conservação, visitação responsável e valorização de parques e reservas.',
+        badge: 'Ação contínua',
+        badgeClasse: 'badge-success'
+    },
+    {
+        numero: '02',
+        titulo: 'Pesquisa',
+        texto: 'Monitoramento de fauna e flora, produção de dados e incentivo à ciência cidadã.',
+        badge: 'Participação aberta',
+        badgeClasse: 'badge-info'
+    },
+    {
+        numero: '03',
+        titulo: 'Educação ambiental',
+        texto: 'Atividades educativas, trilhas interpretativas e ações com estudantes e visitantes.',
+        badge: 'Ação contínua',
+        badgeClasse: 'badge-success'
+    },
+    {
+        numero: '04',
+        titulo: 'Recuperação ambiental',
+        texto: 'Mobilização para recuperação de áreas degradadas e proteção da vegetação nativa.',
+        badge: 'Participação aberta',
+        badgeClasse: 'badge-info'
+    }
+];
+
+const projetos = [
+    {
+        titulo: 'Guardiões do Cerrado',
+        categoria: 'Fauna • Monitoramento',
+        texto: 'Projeto de monitoramento de mamíferos de médio e grande porte em áreas protegidas.',
+        imagem: '../imagens/lobo.png',
+        alt: 'Ilustração de lobo-guará.',
+        visualClasse: 'purple-gradient',
+        badge: 'Em andamento',
+        badgeClasse: 'badge-success',
+        reverso: false
+    },
+    {
+        titulo: 'Campos Vivos',
+        categoria: 'Campos naturais • Aves',
+        texto: 'Iniciativa voltada ao reconhecimento e valorização dos ambientes campestres do Cerrado.',
+        imagem: '../imagens/galito.jpg',
+        alt: 'Ilustração da ave galito.',
+        visualClasse: 'dark-gradient',
+        badge: 'Novas ações',
+        badgeClasse: 'badge-info',
+        reverso: true
+    },
+    {
+        titulo: 'Flora do Cerrado',
+        categoria: 'Flora • Pesquisa',
+        texto: 'Levantamento educativo de espécies vegetais nativas e de ambientes sensíveis.',
+        imagem: '../imagens/lobelia.png',
+        alt: 'Ilustração de lobélia.',
+        visualClasse: 'light-gradient',
+        badge: 'Pesquisa ativa',
+        badgeClasse: 'badge-success',
+        reverso: false
+    }
+];
+
+function gerarFrentesAtuacao() {
+    return frentesAtuacao.map((item) => `
+        <article class="info-card">
+            <span class="badge ${item.badgeClasse}">${item.badge}</span>
+            <span class="card-number">${item.numero}</span>
+            <h3>${item.titulo}</h3>
+            <p>${item.texto}</p>
+        </article>
+    `).join('');
+}
+
+function gerarProjetos() {
+    return projetos.map((projeto) => `
+        <article class="project-card${projeto.reverso ? ' reverse' : ''}">
+            <div class="project-visual ${projeto.visualClasse}">
+                <img src="${projeto.imagem}" alt="${projeto.alt}">
+            </div>
+            <div class="project-content">
+                <p class="project-tag">${projeto.categoria}</p>
+                <span class="badge ${projeto.badgeClasse}">${projeto.badge}</span>
+                <h2>${projeto.titulo}</h2>
+                <p>${projeto.texto}</p>
+                <button class="button button-secondary" type="button" data-project-modal="${projeto.titulo}">Saiba mais</button>
+            </div>
+        </article>
+    `).join('');
+}
+
 export const templates = {
     inicio: `
         <section class="hero">
@@ -25,10 +120,7 @@ export const templates = {
                     <p>Conservação aplicada, pesquisa e educação para fortalecer a relação entre pessoas e áreas naturais.</p>
                 </div>
                 <div class="card-grid four-columns">
-                    <article class="info-card"><span class="badge badge-success">Ação contínua</span><span class="card-number">01</span><h3>Unidades de conservação</h3><p>Apoio a ações de conservação, visitação responsável e valorização de parques e reservas.</p></article>
-                    <article class="info-card"><span class="badge badge-info">Participação aberta</span><span class="card-number">02</span><h3>Pesquisa</h3><p>Monitoramento de fauna e flora, produção de dados e incentivo à ciência cidadã.</p></article>
-                    <article class="info-card"><span class="badge badge-success">Ação contínua</span><span class="card-number">03</span><h3>Educação ambiental</h3><p>Atividades educativas, trilhas interpretativas e ações com estudantes e visitantes.</p></article>
-                    <article class="info-card"><span class="badge badge-info">Participação aberta</span><span class="card-number">04</span><h3>Recuperação ambiental</h3><p>Mobilização para recuperação de áreas degradadas e proteção da vegetação nativa.</p></article>
+                    ${gerarFrentesAtuacao()}
                 </div>
             </div>
         </section>
@@ -45,18 +137,7 @@ export const templates = {
 
         <div class="section">
             <div class="container project-list">
-                <article class="project-card">
-                    <div class="project-visual purple-gradient"><img src="../imagens/lobo.png" alt="Ilustração de lobo-guará."></div>
-                    <div class="project-content"><p class="project-tag">Fauna • Monitoramento</p><span class="badge badge-success">Em andamento</span><h2>Guardiões do Cerrado</h2><p>Projeto de monitoramento de mamíferos de médio e grande porte em áreas protegidas.</p><button class="button button-secondary" type="button" data-project-modal="Guardiões do Cerrado">Saiba mais</button></div>
-                </article>
-                <article class="project-card reverse">
-                    <div class="project-visual dark-gradient"><img src="../imagens/galito.jpg" alt="Ilustração da ave galito."></div>
-                    <div class="project-content"><p class="project-tag">Campos naturais • Aves</p><span class="badge badge-info">Novas ações</span><h2>Campos Vivos</h2><p>Iniciativa voltada ao reconhecimento e valorização dos ambientes campestres do Cerrado.</p><button class="button button-secondary" type="button" data-project-modal="Campos Vivos">Saiba mais</button></div>
-                </article>
-                <article class="project-card">
-                    <div class="project-visual light-gradient"><img src="../imagens/lobelia.png" alt="Ilustração de lobélia."></div>
-                    <div class="project-content"><p class="project-tag">Flora • Pesquisa</p><span class="badge badge-success">Pesquisa ativa</span><h2>Flora do Cerrado</h2><p>Levantamento educativo de espécies vegetais nativas e de ambientes sensíveis.</p><button class="button button-secondary" type="button" data-project-modal="Flora do Cerrado">Saiba mais</button></div>
-                </article>
+                ${gerarProjetos()}
             </div>
         </div>
     `,

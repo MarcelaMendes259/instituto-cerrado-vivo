@@ -1,0 +1,276 @@
+/* ==============================
+   Instituto DF Cerrado
+   Ajustes responsivos para mobile
+   ============================== */
+
+@media (max-width: 768px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .header-content {
+        min-height: 72px;
+        gap: 12px;
+    }
+
+    .brand {
+        min-width: 0;
+        gap: 10px;
+    }
+
+    .brand span {
+        min-width: 0;
+    }
+
+    .brand img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .brand strong {
+        font-size: 0.92rem;
+    }
+
+    .menu-button {
+        flex: 0 0 auto;
+    }
+
+    .main-nav {
+        left: 16px;
+        right: 16px;
+    }
+
+    .hero-grid,
+    .split-section,
+    .participation-grid,
+    .form-layout,
+    .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .hero-copy,
+    .hero-image,
+    .split-section > *,
+    .participation-grid > *,
+    .form-layout > *,
+    .footer-grid > * {
+        grid-column: 1 / -1;
+        min-width: 0;
+    }
+
+    .hero {
+        padding: 48px 0 52px;
+    }
+
+    .hero-grid {
+        gap: 34px;
+    }
+
+    .hero-copy h1 {
+        margin-bottom: 20px;
+        font-size: 2.35rem;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-text {
+        margin-bottom: 24px;
+        font-size: 1rem;
+    }
+
+    .hero-actions,
+    .participation-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .button,
+    .participation-actions .button {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 16px;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .hero-image {
+        width: 100%;
+        padding: 10px;
+        border-radius: 22px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+    }
+
+    .section {
+        padding: 56px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .split-section {
+        gap: 24px;
+    }
+
+    .info-card {
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .info-card h3 {
+        margin-top: 28px;
+    }
+
+    .page-hero,
+    .page-hero.compact {
+        padding: 48px 0;
+    }
+
+    .page-hero h1 {
+        font-size: 2.35rem;
+        overflow-wrap: anywhere;
+    }
+
+    .project-card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .project-card.reverse .project-visual,
+    .project-card.reverse .project-content {
+        order: initial;
+    }
+
+    .project-visual {
+        min-height: 240px;
+        padding: 28px;
+    }
+
+    .project-content {
+        padding: 28px 24px;
+    }
+
+    .form-section {
+        padding-top: 48px;
+    }
+
+    .form-layout {
+        gap: 28px;
+    }
+
+    .form-aside {
+        position: static;
+        padding: 22px;
+    }
+
+    .two-columns,
+    .checkbox-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    fieldset {
+        min-width: 0;
+        padding: 22px;
+    }
+
+    .submit-button {
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    .site-footer {
+        padding-top: 44px;
+    }
+
+    .footer-grid {
+        gap: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .header-content {
+        min-height: 68px;
+    }
+
+    .brand img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .brand strong {
+        font-size: 0.88rem;
+    }
+
+    .brand small {
+        display: none;
+    }
+
+    .menu-button {
+        padding: 8px 10px;
+        font-size: 0.94rem;
+    }
+
+    .hero {
+        padding: 38px 0 44px;
+    }
+
+    .hero-copy h1,
+    .page-hero h1 {
+        font-size: 2rem;
+        line-height: 1.08;
+    }
+
+    .eyebrow {
+        font-size: 0.72rem;
+        line-height: 1.45;
+    }
+
+    .hero-text,
+    .page-hero p:last-child {
+        font-size: 0.98rem;
+    }
+
+    .section {
+        padding: 48px 0;
+    }
+
+    .four-columns {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+    .project-visual {
+        min-height: 210px;
+        padding: 24px;
+    }
+
+    .project-content {
+        padding: 24px 20px;
+    }
+
+    fieldset {
+        padding: 18px;
+    }
+
+    .site-footer {
+        padding-top: 38px;
+    }
+}
